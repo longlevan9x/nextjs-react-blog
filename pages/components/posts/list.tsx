@@ -1,4 +1,4 @@
-const PostList = ({posts}: any) => {
+export default function PostList({posts = [], sliders = []}) {
     return (
         <section className="s-bricks">
             <div className="masonry">
@@ -7,60 +7,28 @@ const PostList = ({posts}: any) => {
                     <div className="brick entry featured-grid animate-this">
                         <div className="entry__content">
                             <div className="featured-post-slider">
-                                <div className="featured-post-slide">
-                                    <div className="f-slide">
-                                        <div className="f-slide__background"></div>
-                                        <div className="f-slide__overlay"></div>
-                                        <div className="f-slide__content">
-                                            <ul className="f-slide__meta">
-                                                <li>September 06, 2020</li>
-                                                <li><a href="#">Naruto Uzumaki</a></li>
-                                            </ul>
-                                            <h1 className="f-slide__title">
-                                                <a href="single-standard.html"
-                                                   title="A Practical Guide to a Minimalist Lifestyle.">
-                                                    A Practical Guide to a Minimalist Lifestyle.
-                                                </a>
-                                            </h1>
+                                {sliders.map((slider: any, index: number) => (
+                                    <div className="featured-post-slide" key={index}>
+                                        <div className="f-slide">
+                                            <div className="f-slide__background"
+                                                 style={{backgroundImage: 'url(' + slider?.files[0]?.url + ')'}}>
+                                            </div>
+                                            <div className="f-slide__overlay"></div>
+                                            <div className="f-slide__content">
+                                                <ul className="f-slide__meta">
+                                                    <li>September 06, 2020</li>
+                                                    <li><a href="#">Naruto Uzumaki</a></li>
+                                                </ul>
+                                                <h1 className="f-slide__title">
+                                                    <a href="single-standard.html"
+                                                       title="A Practical Guide to a Minimalist Lifestyle.">
+                                                        {slider.title}
+                                                    </a>
+                                                </h1>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div className="featured-post-slide">
-                                    <div className="f-slide">
-                                        <div className="f-slide__background"></div>
-                                        <div className="f-slide__overlay"></div>
-                                        <div className="f-slide__content">
-                                            <ul className="f-slide__meta">
-                                                <li>September 06, 2020</li>
-                                                <li><a href="#">Naruto Uzumaki</a></li>
-                                            </ul>
-                                            <h1 className="f-slide__title">
-                                                <a href="single-standard.html"
-                                                   title="A Practical Guide to a Minimalist Lifestyle.">
-                                                    A Practical Guide to a Minimalist Lifestyle.d
-                                                </a>
-                                            </h1>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="featured-post-slide">
-                                    <div className="f-slide">
-                                        <div className="f-slide__background"></div>
-                                        <div className="f-slide__overlay"></div>
-                                        <div className="f-slide__content">
-                                            <ul className="f-slide__meta">
-                                                <li>September 06, 2020</li>
-                                                <li><a href="#">Naruto Uzumaki</a></li>
-                                            </ul>
-                                            <h1 className="f-slide__title">
-                                                <a href="single-standard.html"
-                                                   title="A Practical Guide to a Minimalist Lifestyle.">
-                                                    A Practical Guide to a Minimalist Lifestyle.s
-                                                </a>
-                                            </h1>
-                                        </div>
-                                    </div>
-                                </div>
+                                ))}
                             </div>
                             <div className="featured-post-nav">
                                 <button className="featured-post-nav__prev">
@@ -152,5 +120,3 @@ const PostList = ({posts}: any) => {
         </section>
     )
 }
-
-export default PostList;

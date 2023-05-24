@@ -5,30 +5,10 @@ import Loader from "@/pages/components/layouts/loader";
 import Footer from "@/pages/components/layouts/footer";
 import {useExternalScript} from "@/pages/utils/load-external-script";
 import PostList from "@/pages/components/posts/list";
-import axios from "axios";
-import {InferGetStaticPropsType} from "next";
+import Api from "@/pages/libs/api";
+import {GetStaticProps} from "next";
 
-export async function getStaticProps() {
-    let data: any = null;
-    try {
-        const res = await axios.get('http://127.0.0.1:3000/app/posts', {headers: {origin: 'http://127.0.0.1:4000'}})
-        data = await res.data;
-    } catch (e) {
-        console.log(e);
-        data = null;
-    }
-
-    return {
-        props: {
-            posts: data,
-        },
-    }
-}
-interface HomePageProps {
-    posts: any[];
-}
-
-const ReadyView = ({posts}: HomePageProps) => {
+const ReadyView = ({posts = [], sliders = []}: any) => {
     return (
         <>
             <Head>
@@ -44,19 +24,35 @@ const ReadyView = ({posts}: HomePageProps) => {
             </Head>
             <main>
                 <Header></Header>
-                <PostList posts={posts}></PostList>
+                <PostList posts={posts} sliders={sliders}></PostList>
                 <Footer></Footer>
             </main>
         </>
     );
 }
 
-export default function Home({posts}: InferGetStaticPropsType<typeof getStaticProps>) {
+export const getStaticProps: GetStaticProps = async (context) => {
+    const resPosts = await Api.getPosts();
+    const posts = resPosts.data;
+
+    const resSliders = await Api.getSliders();
+    const sliders = resSliders.data;
+
+    return {
+        props: {
+            posts,
+            sliders
+        },
+        revalidate: 10,
+    };
+};
+
+export default function Home({posts, sliders}: any) {
     const state = useExternalScript(true);
     return (
         <>
             {state === "loading" && <Loader></Loader>}
-            {state === "ready" && <ReadyView posts={posts}></ReadyView>}
+            {state === "ready" && <ReadyView posts={posts} sliders={sliders}></ReadyView>}
         </>
     )
 }

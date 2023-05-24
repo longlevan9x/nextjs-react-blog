@@ -4,6 +4,7 @@ export const useExternalScript = (url: true) => {
     let [state, setState] = useState(url ? "loading" : "idle");
 
     useEffect(() => {
+        console.log(url);
         if (!url) {
             setState("idle");
             return;
