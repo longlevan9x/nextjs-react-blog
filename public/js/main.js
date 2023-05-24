@@ -1,3 +1,4 @@
+var LOADED_APP_EVENT_NAME = 'loadedApp';
 /* ===================================================================
  * Abstract 2.0.0 - Main JS
  *

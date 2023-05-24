@@ -1,6 +1,12 @@
 import Api from "@/libs/api";
 import {GetStaticProps} from "next";
 import Main from "@/components/layouts/main";
+import PostList from "@/components/posts/list";
+import {PostModel} from "@/models/post";
+
+interface PostPageProps {
+    posts: PostModel[];
+}
 
 export const getStaticProps: GetStaticProps = async (context) => {
     const resPosts = await Api.getPosts();
@@ -14,14 +20,14 @@ export const getStaticProps: GetStaticProps = async (context) => {
     };
 };
 
-export default function PostPage({posts}: any) {
+export default function PostPage({posts}: PostPageProps) {
     return (
         <>
             <Main>
                 <section className="s-pageheader">
                     <div className="row current-cat">
                         <div className="column">
-                            <h1 className="h2">Category: Lifestyle</h1>
+                            <h1 className="h2">List post</h1>
                         </div>
                     </div>
                 </section>
@@ -29,41 +35,10 @@ export default function PostPage({posts}: any) {
                     <div className="masonry">
                         <div className="bricks-wrapper h-group">
                             <div className="grid-sizer"></div>
-                            <article className="brick entry format-standard animate-this">
-
-                                <div className="entry__thumb">
-                                    <a href="single-standard.html" className="thumb-link">
-                                        <img src="images/thumbs/masonry/woodcraft-600.jpg"
-                                             srcSet="images/thumbs/masonry/woodcraft-600.jpg 1x, images/thumbs/masonry/woodcraft-1200.jpg 2x"
-                                             alt=""/>
-                                    </a>
-                                </div>
-
-                                <div className="entry__text">
-                                    <div className="entry__header">
-                                        <div className="entry__meta">
-                                <span className="entry__cat-links">
-                                    <a href="#">Design</a>
-                                    <a href="#">Photography</a>
-                                </span>
-                                        </div>
-                                        <h1 className="entry__title"><a href="single-standard.html">Just a Standard
-                                            Format Post.</a></h1>
-                                    </div>
-                                    <div className="entry__excerpt">
-                                        <p>
-                                            Lorem ipsum Sed eiusmod esse aliqua sed incididunt aliqua incididunt mollit
-                                            id et sit proident dolor nulla sed commodo est ad minim elit reprehenderit
-                                            nisi officia aute incididunt velit sint in aliqua cillum in consequat
-                                            consequat in culpa in anim.
-                                        </p>
-                                    </div>
-                                </div>
-
-                            </article>
+                            <PostList posts={posts}></PostList>
                         </div>
                     </div>
-                    <div className="row">
+                    <div className="row is-hidden">
                         <div className="column large-12">
                             <nav className="pgn">
                                 <ul>
@@ -96,7 +71,6 @@ export default function PostPage({posts}: any) {
                             </nav>
                         </div>
                     </div>
-
                 </section>
             </Main>
         </>

@@ -3,6 +3,13 @@ import {GetStaticProps} from "next";
 import PostList from "@/components/posts/list";
 import Main from "@/components/layouts/main";
 import SliderList from "@/components/sliders/list";
+import {PostModel} from "@/models/post";
+import {SliderModel} from "@/models/slider";
+
+interface HomeProps {
+    posts: PostModel[],
+    sliders: SliderModel[]
+}
 
 export const getStaticProps: GetStaticProps = async (context) => {
     const resPosts = await Api.getPosts();
@@ -20,7 +27,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
     };
 };
 
-export default function Home({posts, sliders}: any) {
+export default function Home({posts, sliders}: HomeProps) {
     return (
         <>
             <Main>

@@ -1,10 +1,10 @@
 import {useEffect, useState} from "react";
+import {loadedApp} from "@/utils/event";
 
 export const useExternalScript = (url: true) => {
     let [state, setState] = useState(url ? "loading" : "idle");
 
     useEffect(() => {
-        console.log(url);
         if (!url) {
             setState("idle");
             return;
@@ -18,13 +18,7 @@ export const useExternalScript = (url: true) => {
         return () => {
             setTimeout(() => {
                 setState('ready');
-                // window.document.dispatchEvent(
-                //     new CustomEvent("ready", {
-                //         detail: {
-                //             done: 1,
-                //         },
-                //     })
-                // )
+                loadedApp();
             }, 0)
         };
     }, [url]);
@@ -42,5 +36,7 @@ const loadScriptBody = function (src: string) {
         plugin.defer = true;
         plugin.type = 'text/javascript';
         document.body.appendChild(plugin);
+    } else {
+        plugin.remove()
     }
 }

@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 const Header = () => {
     const inputChangedHandler = (event: any) => {
@@ -17,9 +18,9 @@ const Header = () => {
                 <nav className="s-header__nav-wrap">
                     <h2 className="s-header__nav-heading h6">Site Navigation</h2>
                     <ul className="s-header__nav">
-                        <li className="current"><a href="/" title="">Home</a></li>
+                        <li className="current"><Link href="/" title="">Home</Link></li>
                         <li>
-                            <a href="#0" title="">Blog</a>
+                            <Link href={'/post'} title="">Blog</Link>
                         </li>
                     </ul>
                     <a href="#0" title="Close Menu"
