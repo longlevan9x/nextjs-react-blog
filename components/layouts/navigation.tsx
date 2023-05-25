@@ -1,5 +1,5 @@
 import Link from "next/link";
-import {useState} from "react";
+import {usePathname} from "next/navigation";
 
 const navigations = [
     {
@@ -10,11 +10,14 @@ const navigations = [
         title: 'Blog',
         path: '/post',
     },
+    {
+        title: 'Tag',
+        path: '/tag',
+    },
 ];
 
 export default function Navigation() {
-    const location = window.location;
-    const [pathname, setPathname] = useState(location.pathname);
+    const pathname = usePathname();
 
     return (
         <>

@@ -2,11 +2,11 @@ import {PostModel} from "@/models/post";
 import Link from "next/link";
 import Tag from "@/components/common/tag";
 
-interface PostItemProps {
+interface PostItemCardProps {
     post: PostModel;
 }
 
-export default function PostItem({post}: PostItemProps) {
+export default function PostItemCard({post}: PostItemCardProps) {
     return (
         <>
             <article className="brick entry format-standard animate-this">

@@ -2242,29 +2242,29 @@ label>input[type="checkbox"], label>input[type="radio"] {
 /* -------------------------------------------------------------------
  * ## style placeholder text
  * ------------------------------------------------------------------- */
-::-webkit-input-placeholder {
-    /* WebKit, Blink, Edge */
-    color: var(--color-placeholder);
-}
+/*::-webkit-input-placeholder {*/
+/*    !* WebKit, Blink, Edge *!*/
+/*    color: var(--color-placeholder);*/
+/*}*/
 
-:-ms-input-placeholder {
-    /* Internet Explorer 10-11 */
-    color: var(--color-placeholder);
-}
+/*:-ms-input-placeholder {*/
+/*    !* Internet Explorer 10-11 *!*/
+/*    color: var(--color-placeholder);*/
+/*}*/
 
-::-ms-input-placeholder {
-    /* Microsoft Edge */
-    color: var(--color-placeholder);
-}
+/*::-ms-input-placeholder {*/
+/*    !* Microsoft Edge *!*/
+/*    color: var(--color-placeholder);*/
+/*}*/
 
-::placeholder {
-    /* Most modern browsers support this now. */
-    color: var(--color-placeholder);
-}
+/*::placeholder {*/
+/*    !* Most modern browsers support this now. *!*/
+/*    color: var(--color-placeholder);*/
+/*}*/
 
-.placeholder {
-    color: var(--color-placeholder) !important;
-}
+/*.placeholder {*/
+/*    color: var(--color-placeholder) !important;*/
+/*}*/
 
 /* -------------------------------------------------------------------
  * ## change autocomplete styles in Chrome
@@ -3997,35 +3997,35 @@ button::-moz-focus-inner, input::-moz-focus-inner {
     -webkit-appearance: none;
 }
 
-.s-header__search-form input[type="search"]::-webkit-input-placeholder {
-    color: black;
-    text-align: center !important;
-    opacity: 1;
-}
+/*.s-header__search-form input[type="search"]::-webkit-input-placeholder {*/
+/*    color: black;*/
+/*    text-align: center !important;*/
+/*    opacity: 1;*/
+/*}*/
 
-.s-header__search-form input[type="search"]:-moz-placeholder {
-    color: black;
-    text-align: center !important;
-    opacity: 1;
-}
+/*.s-header__search-form input[type="search"]:-moz-placeholder {*/
+/*    color: black;*/
+/*    text-align: center !important;*/
+/*    opacity: 1;*/
+/*}*/
 
-.s-header__search-form input[type="search"]::-moz-placeholder {
-    color: black;
-    text-align: center !important;
-    opacity: 1;
-}
+/*.s-header__search-form input[type="search"]::-moz-placeholder {*/
+/*    color: black;*/
+/*    text-align: center !important;*/
+/*    opacity: 1;*/
+/*}*/
 
-.s-header__search-form input[type="search"]:-ms-input-placeholder {
-    color: black;
-    text-align: center !important;
-    opacity: 1;
-}
+/*.s-header__search-form input[type="search"]:-ms-input-placeholder {*/
+/*    color: black;*/
+/*    text-align: center !important;*/
+/*    opacity: 1;*/
+/*}*/
 
-.s-header__search-form input[type="search"].placeholder {
-    color: black;
-    text-align: center !important;
-    opacity: 1;
-}
+/*.s-header__search-form input[type="search"].placeholder {*/
+/*    color: black;*/
+/*    text-align: center !important;*/
+/*    opacity: 1;*/
+/*}*/
 
 .s-header__search-form input[type="search"]:focus {
     outline: none;

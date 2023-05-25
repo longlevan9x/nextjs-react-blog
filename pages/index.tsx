@@ -1,10 +1,10 @@
 import Api from "@/libs/api";
 import {GetStaticProps} from "next";
-import PostList from "@/components/posts/list";
 import Main from "@/components/layouts/main";
 import SliderList from "@/components/sliders/list";
 import {PostModel} from "@/models/post";
 import {SliderModel} from "@/models/slider";
+import PostListCard from "@/components/posts/list-card";
 
 interface HomeProps {
     posts: PostModel[],
@@ -36,7 +36,7 @@ export default function Home({posts, sliders}: HomeProps) {
                         <div className="bricks-wrapper h-group">
                             <div className="grid-sizer"></div>
                             <SliderList sliders={sliders}></SliderList>
-                            <PostList posts={posts}></PostList>
+                            <PostListCard posts={posts}></PostListCard>
                         </div>
                     </div>
 
