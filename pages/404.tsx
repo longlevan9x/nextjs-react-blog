@@ -9,7 +9,7 @@ export default function Custom404() {
                 <section className={styles.page_404}>
                     <div className="container">
                         <div className="row">
-                            <div className="" style={{width: '100%'}}>
+                            <div className="" style={{width: "100%"}}>
                                 <div className="">
                                     <div className={styles.four_zero_four_bg}>
                                         <h1 className=" ">404</h1>
