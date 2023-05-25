@@ -13,20 +13,17 @@ export const useExternalScript = (url: true) => {
         loadScriptBody('/js/modernizr.js',);
         loadScriptBody('/js/jquery-3.2.1.min.js',);
         loadScriptBody('/js/plugins.js',);
-        loadScriptBody('/js/main.js');
+        loadScriptBody('/js/main.js', setState);
 
         return () => {
-            setTimeout(() => {
-                setState('ready');
-                loadedApp();
-            }, 1000)
+
         };
     }, [url]);
 
     return state;
 };
 
-const loadScriptBody = function (src: string) {
+const loadScriptBody = function (src: string, setState?: Function) {
     let plugin: any = document.querySelector(`script[src="${src}"]`);
 
     if (!plugin) {
@@ -39,4 +36,9 @@ const loadScriptBody = function (src: string) {
     } else {
         plugin.remove()
     }
+
+    setState && setTimeout(() => {
+        setState('ready');
+        loadedApp();
+    }, 0)
 }
