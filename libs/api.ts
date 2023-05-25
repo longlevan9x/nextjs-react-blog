@@ -5,7 +5,8 @@ const axiosClient = axios.create({
         origin: process.env.BASE_URL
     },
     baseURL: process.env.API_URL
-})
+});
+
 export default class Api {
     static getPosts(params: { keyword?: string } = {}) {
         return axiosClient.get('app/posts', {params});
@@ -21,5 +22,9 @@ export default class Api {
 
     static getSliders() {
         return axiosClient.get('app/sliders');
+    }
+
+    static getTags() {
+        return axiosClient.get('app/tags');
     }
 }
