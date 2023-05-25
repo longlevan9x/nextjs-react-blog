@@ -3,6 +3,7 @@ import {GetStaticProps} from "next";
 import Api from "@/libs/api";
 import {TagModel} from "@/models/tag";
 import Link from "next/link";
+import Image from "next/image";
 
 interface TagPageProps {
     tags: TagModel[]
@@ -53,7 +54,7 @@ export default function TagPage({tags}: TagPageProps) {
                         <div className="column large-12">
                             <div className="s-content__media">
                                 <div className="s-content__post-thumb">
-                                    <img src="/images/work.png" style={{width: '100%'}} alt=""/>
+                                    <Image src="/images/work.png" style={{width: '100%'}} alt=""/>
                                 </div>
                             </div>
                         </div>

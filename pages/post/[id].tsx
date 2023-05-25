@@ -2,8 +2,8 @@ import {GetServerSideProps, GetStaticPaths, GetStaticProps} from "next";
 import Api from "@/libs/api";
 import Main from "@/components/layouts/main";
 import Tag from "@/components/common/tag";
-import {Simulate} from "react-dom/test-utils";
 import {PostModel} from "@/models/post";
+import Image from "next/image";
 
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
@@ -74,11 +74,7 @@ export default function PostDetail({post, postContent}: any) {
                             <article className="s-post entry format-standard">
                                 <div className="s-content__media">
                                     <div className="s-content__post-thumb">
-                                        <img src={post?.cover}
-                                            //     srcSet="/images/thumbs/single/standard/standard-2100.jpg 2100w,
-                                            // /images/thumbs/single/standard/standard-1050.jpg 1050w,
-                                            // /images/thumbs/single/standard/standard-525.jpg 525w"
-                                             sizes="(max-width: 2100px) 100vw, 2100px" alt={post?.title}/>
+                                        <Image src={post?.cover} alt=""/>
                                     </div>
                                 </div>
                                 <div className="s-content__primary">

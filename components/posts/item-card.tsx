@@ -1,6 +1,7 @@
 import {PostModel} from "@/models/post";
 import Link from "next/link";
 import Tag from "@/components/common/tag";
+import Image from "next/image";
 
 interface PostItemCardProps {
     post: PostModel;
@@ -12,11 +13,13 @@ export default function PostItemCard({post}: PostItemCardProps) {
             <article className="brick entry format-standard animate-this">
                 <div className="entry__thumb">
                     <Link href={'/post/' + post.id} className="thumb-link">
-                        <img src={post.cover || '/images/eye.png'}
+                        <Image src={post.cover || '/images/eye.png'}
                              width={600}
                              height={690}
                             // srcSet="/images/thumbs/masonry/woodcraft-600.jpg 1x, /images/thumbs/masonry/woodcraft-1200.jpg 2x"
-                             alt={post.title}/>
+                            //  alt={post.title}
+                            alt=""
+                        />
                     </Link>
                 </div>
                 <div className="entry__text">
