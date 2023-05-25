@@ -19,7 +19,7 @@ export const useExternalScript = (url: true) => {
             setTimeout(() => {
                 setState('ready');
                 loadedApp();
-            }, 0)
+            }, 1000)
         };
     }, [url]);
 
