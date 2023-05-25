@@ -26,7 +26,6 @@ export default function Custom404() {
                         </div>
                     </div>
                 </section>
-
             </Main>
         </>
     );
